@@ -24,7 +24,7 @@ public class FaturaController {
     @PostMapping
     public ResponseEntity<Fatura> createFatura(@RequestBody Fatura fatura) {
         Fatura novaFatura = faturaService.CreateFatura(fatura);
-        return ResponseEntity.status(HttpStatus.CREATED).body(novaFatura);
+        return ResponseEntity.status(201).body(novaFatura);
     }
 
     @GetMapping("/{id}")
@@ -36,7 +36,7 @@ public class FaturaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Optional<Fatura>> DeleteFatura(@PathVariable Long id) {
         Optional<Fatura> DeleteFatura = faturaService.deleteFatura(id);
-        return ResponseEntity.status(HttpStatus.OK).body(DeleteFatura);
+        return ResponseEntity.status(200).body(DeleteFatura);
     }
 
     @PutMapping("/{id}")
